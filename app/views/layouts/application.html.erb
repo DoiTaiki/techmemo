@@ -12,6 +12,13 @@
   </head>
 
   <body>
+    <header>
+      <% if user_signed_in? %>
+        <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: "rounded-lg py-3 px-5 bg-red-600 text-white block font-medium" %>
+      <% else %>
+        <%= link_to 'ログイン', new_user_session_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+      <% end %>
+    </header>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
